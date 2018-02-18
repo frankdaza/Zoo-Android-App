@@ -36,5 +36,7 @@
             android:layout_height="wrap_content"
             android:text="The Baboon is a kind of monkey that live in the jungle and in many zoos in the planet"
             android:textAlignment="textStart" />
+
     </LinearLayout>
+
 </LinearLayout>

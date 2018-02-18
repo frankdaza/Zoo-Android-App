@@ -20,9 +20,15 @@ class AnimalAdapter : BaseAdapter {
     var listAnimals: ArrayList<Animal>
     var context: Context
 
+
     constructor(context: Context, listAnimals: ArrayList<Animal>) : super() {
         this.context = context
         this.listAnimals = listAnimals
+    }
+
+    fun delete(index: Int) {
+        this.listAnimals.removeAt(index)
+        notifyDataSetChanged()
     }
 
 
@@ -56,5 +62,6 @@ class AnimalAdapter : BaseAdapter {
     override fun getCount(): Int {
         return this.listAnimals.size
     }
+
 
 }
