@@ -1,10 +1,14 @@
 package com.frankdaza.zooapp.Adapter
 
 import android.content.Context
+import android.content.Intent
+import android.support.v4.content.ContextCompat
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import com.frankdaza.zooapp.AnimalInfoActivity
 import com.frankdaza.zooapp.model.Animal
 import kotlinx.android.synthetic.main.animal_ticket.view.*
 
@@ -29,6 +33,14 @@ class AnimalAdapter : BaseAdapter {
         animalTicketView.animalImageView.setImageResource(animal.image)
         animalTicketView.nameTextView.text = animal.name
         animalTicketView.descripcionTextView.text = animal.description
+
+        animalTicketView.mainItemLinearLayout.setOnClickListener {
+            val intent = Intent(this.context, AnimalInfoActivity::class.java)
+            intent.putExtra("name", animal.name)
+            intent.putExtra("description", animal.description)
+            intent.putExtra("image", animal.image)
+            ContextCompat.startActivity(this.context, intent, null)
+        }
 
         return animalTicketView
     }
